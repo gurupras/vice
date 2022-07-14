@@ -89,7 +89,7 @@ func (t *Transport) makeSubscriber(name string) (chan []byte, error) {
 		return nil, err
 	}
 
-	ch := make(chan []byte, 1024)
+	ch := make(chan []byte)
 	go func() {
 		for {
 			data, err := c.BRPop(0*time.Second, name).Result()
